@@ -1,4 +1,4 @@
-package com.other;
+package com.exercise.other;
 
 /**
  * @moudle: MyPrint 
