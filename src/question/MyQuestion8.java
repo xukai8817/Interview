@@ -34,6 +34,13 @@ public class MyQuestion8<E> {
 		}
 		numArray[0] = 2;
 		System.out.println(q.getNum(numArray));
+		
+		LinkedList<Integer> list3 = new LinkedList<Integer>(array);
+		node = q.reverse2(list3.head);
+		while (node != null) {
+			System.out.print(node.element + " ");
+			node = node.next;
+		}
 	}
 	
 	/**
@@ -44,12 +51,16 @@ public class MyQuestion8<E> {
 	 * @param list
 	 * @return
 	 */
-	public Node<E> reverse(Node<E> head) {
-		if (head == null || head.next == null)
-			return head;
-		Node<E> tail = reverse(head.next);
-		head.next.next = head;
-		head.next = null;
+	public Node<E> reverse(Node<E> current) {
+		// 1.空树、或者树尾，返回树尾
+		if (current == null || current.next == null)
+			return current;
+		// 2.递归返回树尾
+		Node<E> tail = reverse(current.next);
+		// 3.reverse
+		current.next.next = current;
+		// 4.取消之前的指向
+		current.next = null;
 		return tail;
 	}
 	/**
@@ -63,21 +74,42 @@ public class MyQuestion8<E> {
 	public Node<E> reverseNonrecurisve(Node<E> head) {
 		if (head == null)
 			return head;
-		Node<E> current = head;
 		Node<E> prevoius = null;
-		Node<E> nextNode = null;
-		while (current.next != null) {
+		while (head.next != null) {
 			// 1.保存当前结点指向的下一结点
-			nextNode = current.next;
+			Node<E> nextNode = head.next;
 			// 2.将当前结点的下一节点指向prevoius
-			current.next = prevoius;
+			head.next = prevoius;
 			// 3.将当前结点设置为prevoius
-			prevoius = current;
+			prevoius = head;
 			// 4.当前结点向后移动
-			current = nextNode;
+			head = nextNode;
 		}
-		current.next = prevoius; // 最后一个结点
-		return current;
+		head.next = prevoius; // 最后一个结点
+		return head;
+	}
+	
+	/**
+	 * 面试题
+	 * <p>Title: reverse2</p>
+	 * <p>author : xukai</p>
+	 * <p>date : 2017年6月13日 上午1:05:21</p>
+	 * @param current
+	 * @return
+	 */
+	public Node<E> reverse2(Node<E> current) {
+		Node<E> pre = null;
+		while(current != null) {
+			// 1.保存当前元素指向的对象
+			Node<E> next = current.next;
+			// 2.当前元素指向pre
+			current.next = pre;
+			// 3.将当前对象赋给pre
+			pre = current;
+			// 4.向后移动
+			current = next;
+		}
+		return pre;
 	}
 	
 	/**
