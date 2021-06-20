@@ -13,3 +13,4 @@ MANIFEST.MF
 *.iml
 .idea/
 launch.mark
+/out
