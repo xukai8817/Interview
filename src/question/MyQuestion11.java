@@ -1,7 +1,7 @@
 package question;
 
-import com.edu.chapter.twenty_six.day0416.BinaryTree;
-import com.edu.chapter.twenty_six.day0416.BinaryTree.TreeNode;
+/*import com.edu.chapter.twenty_six.day0416.BinaryTree;
+import com.edu.chapter.twenty_six.day0416.BinaryTree.TreeNode;*/
 
 /**
  * @moudle: MyQuestion11
@@ -13,7 +13,7 @@ import com.edu.chapter.twenty_six.day0416.BinaryTree.TreeNode;
  */
 public class MyQuestion11 {
 
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		Integer[] array = { 5, 3, 7, 2, 4, 6, 8 };
 		BinaryTree<Integer> bt = new BinaryTree<>(array);
 		MyQuestion11 q = new MyQuestion11();
@@ -68,6 +68,6 @@ public class MyQuestion11 {
 			super();
 			this.element = element;
 		}
-	}
+	}*/
 
 }
